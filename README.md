@@ -1,6 +1,5 @@
 # Spec2Tapeout: AI Agent Pipeline for RTL-to-GDS Automation
 
-> **ICLAD 2025 Hackathon — Spec2Tapeout Challenge**
 > ASU EEE 598 | MiniProject 2 | April 2026
 
 An autonomous three-agent pipeline that transforms a natural-language or YAML design specification into a manufacturable chip layout (GDS) with a single command — no manual EDA tool interaction required.
