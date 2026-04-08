@@ -1,0 +1,31 @@
+seq_detector_0011:
+  description: Detects a binary sequence "0011" in the input stream.
+  tech_node: SkyWater 130HD
+  clock_period: 1.1ns
+  ports:
+    - name: clk
+      direction: input
+      type: logic
+      description: Clock input
+    - name: reset
+      direction: input
+      type: logic
+      description: Synchronous reset (active high)
+    - name: data_in
+      direction: input
+      type: logic
+      description: Serial data input
+    - name: detected
+      direction: output
+      type: logic
+      description: Asserted high for one cycle when '0011' is detected.
+  module_signature: |
+    module seq_detector_0011(
+        input clk,
+        input reset,
+        input data_in,
+        output reg detected
+    );
+  sequence_to_detect: '0011'
+  sample_input: '0001100110110010'
+  sample_output: '0000010001000000'

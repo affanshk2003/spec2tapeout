@@ -1,0 +1,36 @@
+fp16_multiplier:
+  description: >
+    16-bit floating-point multiplier (IEEE 754 half-precision compatible) with support for zero detection
+    and rounding to nearest even. Takes two 16-bit FP16 inputs and computes the product in a single cycle.
+  tech_node: SkyWater 130HD
+  clock_period: 9ns
+  parameters: {}
+  ports:
+    - name: a
+      direction: input
+      type: logic_vector
+      width: 16
+      description: FP16 input operand A
+    - name: b
+      direction: input
+      type: logic_vector
+      width: 16
+      description: FP16 input operand B
+    - name: result
+      direction: output
+      type: logic_vector
+      width: 16
+      description: FP16 product result of A * B
+  module_signature: |
+    module fp16_multiplier(
+      input  logic [15:0] a,
+      input  logic [15:0] b,
+      output logic [15:0] result
+    );
+  sample_usage:
+    description: >
+      Example use case multiplying 1.0 * 2.0, expecting 2.0 in FP16 encoding.
+    a: 16'b0_01111_0000000000  # 1.0
+    b: 16'b0_10000_0000000000  # 2.0
+    result: 16'b0_10000_0000000000  # 2.0
+

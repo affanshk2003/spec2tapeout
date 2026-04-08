@@ -1,0 +1,56 @@
+exp_fixed_point:
+  description: >
+    A 2-stage pipelined exponential function for unsigned fixed-point inputs using a 3-term Taylor 
+    series approximation: e^x ≈ 1 + x + x^2/2 + x^3/6. Inputs are unsigned fixed-point values in 
+    UQ1.(WIDTH-1) format (e.g., WIDTH = 8 implies UQ1.7). The output is in UQ(WIDTH+1).(WIDTH - 1) format.
+  tech_node: SkyWater 130HD
+  clock_period: 4.5ns
+  parameters:
+    WIDTH: 8    # Bit-width of unsigned fixed-point input (1 integer bit, WIDTH-1 fractional bits)
+  ports:
+    - name: clk
+      direction: input
+      type: logic
+      description: Clock input (rising edge)
+    - name: rst
+      direction: input
+      type: logic
+      description: Synchronous reset (active high)
+    - name: enable
+      direction: input
+      type: logic
+      description: Enable signal to process input (active high)
+    - name: x_in
+      direction: input
+      type: logic_vector
+      width: WIDTH
+      description: Unsigned fixed-point input value in UQ1.(WIDTH-1) format
+    - name: exp_out
+      direction: output
+      type: logic_vector
+      width: 2*WIDTH
+      description: Unsigned exponential output in UQ1.(2*WIDTH - 1) format
+  module_signature: |
+    module exp_fixed_point #(
+      parameter WIDTH = 8
+    ) (
+      input  logic               clk,
+      input  logic               rst,
+      input  logic               enable,
+      input  logic [WIDTH-1:0]   x_in,
+      output logic [2*WIDTH-1:0] exp_out
+    );
+  sample_usage:
+    description: >
+      Test input: x = 128 (which is 1.0 in UQ1.7). Expected output is approx. 2.718 in UQ1.15 format,
+      which is represented as 341 (rounded).
+    clk_sequence:    [1, 0, 1, 0, 1, 0, 1]
+    rst_sequence:    [1, 0, 0, 0, 0, 0, 0]
+    enable_sequence: [1, 1, 1, 1, 1, 1, 1]
+    x_in_sequence:   [0, 128, 128, 128, 128, 128, 128]  # 1.0 in UQ1.7 format
+    expected_exp_out:
+      - null
+      - null
+      - null
+      - 341   # ≈ e^1 in UQ9.7
+

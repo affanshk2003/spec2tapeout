@@ -1,0 +1,60 @@
+fir_filter:
+  description: >
+    Parameterized N-tap FIR (Finite Impulse Response) filter using pipelining for improved timing. Using integer values for all.
+    Input samples are multiplied by fixed coefficients and accumulated in a pipelined fashion.
+  tech_node: SkyWater 130HD
+  clock_period: 8ns
+  parameters:
+    WIDTH: 16         # Bit width of input samples and coefficients
+    N: 8              # Number of taps (filter order)
+  ports:
+    - name: clk
+      direction: input
+      type: logic
+      description: Clock input
+    - name: rst
+      direction: input
+      type: logic
+      description: Active-high synchronous reset
+    - name: x_in
+      direction: input
+      type: logic signed [WIDTH-1:0]
+      description: Input sample
+    - name: h
+      direction: input
+      type: logic signed [N-1:0][WIDTH-1:0]
+      description: FIR filter coefficients
+    - name: y_out
+      direction: output
+      type: logic signed [2*WIDTH+$clog2(N):0]
+      description: Filtered output sample (with bit growth from accumulation)
+  module_signature: |
+    module fir_filter #(
+      parameter WIDTH = 16,
+      parameter N = 8
+    ) (
+      input  logic                             clk,
+      input  logic                             rst,
+      input  logic signed [WIDTH-1:0]          x_in,
+      input  logic signed [N-1:0][WIDTH-1:0]   h,
+      output logic signed [2*WIDTH+$clog2(N):0] y_out
+    );
+  sample_usage:
+    description: >
+      8-tap FIR filter with input samples [1, 2, 3, ..., 16] and coefficients [1, 2, ..., 8].
+      The output is compared against expected convolution results.
+    clk_frequency: 100MHz
+  stimulus:
+    clk: [0, 1] * 40
+    rst: [1] + [0] * 39
+    x_in: [1, 2, 3, 4, 5, 6, 7, 8] + [0] * 32
+  expected_y_out:
+    - 1
+    - 4
+    - 10
+    - 20
+    - 35
+    - 56
+    - 84
+    - 120
+
