@@ -1,0 +1,16 @@
+OpenROAD 26Q1-2290-g4589d89a40 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 16 thread(s).
+read_liberty /OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_db ./results/sky130hd/seq_detector_0011/base/5_2_route.odb
+read_sdc ./results/sky130hd/seq_detector_0011/base/5_1_grt.sdc
+source /OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl
+filler_placement "sky130_fd_sc_hd__fill_1 sky130_fd_sc_hd__fill_2 sky130_fd_sc_hd__fill_4 sky130_fd_sc_hd__fill_8"
+[INFO DPL-0001] Placed 131 filler instances.
+Design area 190 um^2 17% utilization.
+write_db ./results/sky130hd/seq_detector_0011/base/5_3_fillcell.odb
+Elapsed time: 0:00.82[h:]min:sec. CPU time: user 0.69 sys 0.13 (99%). Peak memory: 121652KB.
+Log                        Elapsed/s Peak Memory/MB  sha1sum .odb [0:20)
+5_3_fillcell                       0            118 5b3737c375420fbee90d

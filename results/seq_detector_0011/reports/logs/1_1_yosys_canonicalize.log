@@ -1,0 +1,20 @@
+Yosys 0.63+post (git sha1 UNKNOWN-dirty, g++ 11.4.0-1ubuntu1~22.04.3 -fPIC -O3)
+Using ABC speed script.
+Extracting clock period from SDC file: ./results/sky130hd/seq_detector_0011/base/clock_period.txt
+Setting clock period to 3.85
+1. Executing Liberty frontend: /OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+2. Executing Liberty frontend: /OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+3. Executing Verilog-2005 frontend: /OpenROAD-flow-scripts/flow/designs/sky130hd/seq_detector_0011/rtl/seq_detector_0011.v
+4. Executing Verilog-2005 frontend: /OpenROAD-flow-scripts/flow/platforms/sky130hd/cells_clkgate_hd.v
+5. Executing HIERARCHY pass (managing design hierarchy).
+6. Executing AST frontend in derive mode using pre-parsed AST for module `\seq_detector_0011'.
+6.1. Analyzing design hierarchy..
+6.2. Analyzing design hierarchy..
+7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Warning: Ignoring module seq_detector_0011 because it contains processes (run 'proc' command first).
+8. Executing RTLIL backend.
+Warnings: 1 unique messages, 1 total
+End of script. Logfile hash: 6af014439a, CPU: user 0.20s system 0.03s, MEM: 49.38 MB peak
+Yosys 0.63+post (git sha1 UNKNOWN-dirty, g++ 11.4.0-1ubuntu1~22.04.3 -fPIC -O3)
+Time spent: 80% 4x read_liberty (0 sec), 7% 4x read_verilog (0 sec), ...
+Elapsed time: 0:00.35[h:]min:sec. CPU time: user 0.31 sys 0.04 (101%). Peak memory: 54528KB.

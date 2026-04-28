@@ -1,0 +1,81 @@
+OpenROAD 26Q1-2290-g4589d89a40 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 16 thread(s).
+read_liberty /OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_db ./results/sky130hd/seq_detector_0011/base/3_place.odb
+read_sdc ./results/sky130hd/seq_detector_0011/base/3_place.sdc
+source /OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl
+clock_tree_synthesis -sink_clustering_enable
+[INFO CTS-0050] Root buffer is sky130_fd_sc_hd__clkbuf_4.
+[INFO CTS-0051] Sink buffer is sky130_fd_sc_hd__clkbuf_8.
+[INFO CTS-0052] The following clock buffers will be used for CTS:
+                    sky130_fd_sc_hd__clkbuf_4
+                    sky130_fd_sc_hd__clkbuf_8
+[INFO CTS-0049] Characterization buffer is sky130_fd_sc_hd__clkbuf_8.
+[INFO CTS-0007] Net "clk" found for clock "clk".
+[INFO CTS-0010]  Clock net "clk" has 4 sinks.
+[INFO CTS-0008] TritonCTS found 1 clock nets.
+[INFO CTS-0097] Characterization used 2 buffer(s) types.
+[INFO CTS-0201] 0 blockages from hard placement blockages and placed macros will be used.
+[INFO CTS-0027] Generating H-Tree topology for net clk.
+[INFO CTS-0028]  Total number of sinks: 4.
+[INFO CTS-0090]  Sinks will be clustered based on buffer max cap.
+[INFO CTS-0030]  Number of static layers: 0.
+[INFO CTS-0020]  Wire segment unit: 13600  dbu (13 um).
+[INFO CTS-0023]  Original sink region: [(6705, 17740), (20965, 25780)].
+[INFO CTS-0024]  Normalized sink region: [(0.493015, 1.30441), (1.54154, 1.89559)].
+[INFO CTS-0025]     Width:  1.0485.
+[INFO CTS-0026]     Height: 0.5912.
+ Level 1
+    Direction: Horizontal
+    Sinks per sub-region: 2
+    Sub-region size: 0.5243 X 0.5912
+[INFO CTS-0034]     Segment length (rounded): 1.
+[INFO CTS-0032]  Stop criterion found. Max number of sinks is 15.
+[INFO CTS-0035]  Number of sinks covered: 4.
+[INFO CTS-0018]     Created 3 clock buffers.
+[INFO CTS-0012]     Minimum number of buffers in the clock path: 2.
+[INFO CTS-0013]     Maximum number of buffers in the clock path: 2.
+[INFO CTS-0015]     Created 3 clock nets.
+[INFO CTS-0016]     Fanout distribution for the current clock = 2:2..
+[INFO CTS-0017]     Max level of the clock tree: 1.
+[INFO CTS-0098] Clock net "clk"
+[INFO CTS-0099]  Sinks 4
+[INFO CTS-0100]  Leaf buffers 0
+[INFO CTS-0101]  Average sink wire length 39.94 um
+[INFO CTS-0102]  Path depth 2 - 2
+[INFO CTS-0207]  Dummy loads inserted 0
+estimate_parasitics -placement
+[INFO DPL-0005] Max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+Movements Summary
+---------------------------------------
+Total cells:                      13
+Diamond Move Success:             13 (100.00%)
+Diamond Move Failure:              0
+Rip-up and replace Success:        0 (  0.00% of diamond failures)
+Rip-up and replace Failure:        0
+Total Placement Failures:          0
+---------------------------------------
+Placement Analysis
+---------------------------------
+total displacement          5.6 u
+average displacement        0.2 u
+max displacement            3.2 u
+original HPWL             166.7 u
+legalized HPWL            176.9 u
+delta HPWL                    6 %
+
+estimate_parasitics -placement
+Report metrics stage 4, cts final...
+
+==========================================================================
+cts final report_design_area
+--------------------------------------------------------------------------
+Design area 190 um^2 17% utilization.
+write_db ./results/sky130hd/seq_detector_0011/base/4_1_cts.odb
+write_sdc -no_timestamp ./results/sky130hd/seq_detector_0011/base/4_cts.sdc
+Elapsed time: 0:02.63[h:]min:sec. CPU time: user 2.35 sys 0.25 (98%). Peak memory: 149496KB.
+Log                        Elapsed/s Peak Memory/MB  sha1sum .odb [0:20)
+4_1_cts                            2            145 b356e752dff7f3ce6495

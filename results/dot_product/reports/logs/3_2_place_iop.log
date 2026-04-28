@@ -1,0 +1,23 @@
+OpenROAD 26Q1-2290-g4589d89a40 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 16 thread(s).
+read_liberty /OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_db ./results/sky130hd/dot_product/base/3_1_place_gp_skip_io.odb
+read_sdc ./results/sky130hd/dot_product/base/2_floorplan.sdc
+source /OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl
+place_pins -hor_layers met3 -ver_layers met2 -min_distance 2
+Found 0 macro blocks.
+[INFO PPL-0001] Number of available slots 918
+[INFO PPL-0002] Number of I/O             151
+[INFO PPL-0003] Number of I/O w/sink      151
+[INFO PPL-0004] Number of I/O w/o sink    0
+[INFO PPL-0005] Slots per section         200
+[INFO PPL-0008] Successfully assigned pins to sections.
+[INFO PPL-0012] I/O nets HPWL: 29085.91 um.
+Design area 28869 um^2 12% utilization.
+write_db ./results/sky130hd/dot_product/base/3_2_place_iop.odb
+Elapsed time: 0:00.58[h:]min:sec. CPU time: user 0.46 sys 0.07 (92%). Peak memory: 129500KB.
+Log                        Elapsed/s Peak Memory/MB  sha1sum .odb [0:20)
+3_2_place_iop                      0            126 9637504d60683d549f38

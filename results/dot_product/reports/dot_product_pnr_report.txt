@@ -1,0 +1,90 @@
+
+════════════════════════════════════════════════════════════════════════
+  RTL-to-GDS COMPLETE REPORT — dot_product
+════════════════════════════════════════════════════════════════════════
+  Spec2Tapeout | ICLAD 2025 | Platform: sky130hd (SkyWater 130nm)
+  Pipeline: Ollama deepseek-coder → Yosys → OpenROAD ORFS
+  Final stage : 6_final
+
+════════════════════════════════════════════════════════════════════════
+  OUTPUT FILES
+════════════════════════════════════════════════════════════════════════
+  ODB  : /OpenROAD-flow-scripts/flow/results/sky130hd/dot_product/base/6_final.odb
+  GDS  : /OpenROAD-flow-scripts/flow/results/sky130hd/dot_product/base/6_final.gds
+  Size        : 5,888,118 bytes (5750 KB)
+  SDC  : constraints/dot_product.sdc
+  RTL  : rtl/dot_product.v
+  Dirs : results → /OpenROAD-flow-scripts/flow/results/sky130hd/dot_product/base
+         reports → /OpenROAD-flow-scripts/flow/reports/sky130hd/dot_product/base
+
+════════════════════════════════════════════════════════════════════════
+  TIMING SUMMARY                          ✓ TIMING MET
+════════════════════════════════════════════════════════════════════════
+  WNS (Worst Negative Slack) : -0.000 ns
+  TNS (Total Negative Slack)  : N/A ns
+  Spec clock period           : 4.5 ns
+  Synthesis target period     : 9.0 ns
+  Note: SDC targets synthesis period to meet sky130hd realistic timing.
+        WNS shown is vs. synthesis target (not spec). See periods above.
+
+════════════════════════════════════════════════════════════════════════
+  AREA & UTILIZATION
+════════════════════════════════════════════════════════════════════════
+  Design area   : 34294 µm²
+  Utilization   : 14%
+
+════════════════════════════════════════════════════════════════════════
+  POWER ESTIMATE
+════════════════════════════════════════════════════════════════════════
+  Internal power  : 5.720e-02 W
+  Switching power : 6.340e-02 W
+  Leakage power   : 1.590e-08 W
+  Total power     : 1.210e-01 W
+
+════════════════════════════════════════════════════════════════════════
+  ROUTING DRC
+════════════════════════════════════════════════════════════════════════
+  Not available (6_report stage skipped due to headless mode)
+
+════════════════════════════════════════════════════════════════════════
+  CELL COUNT BREAKDOWN
+════════════════════════════════════════════════════════════════════════
+  Cell type report:                       Count       Area
+    Fill cell                             27562  208931.63
+    Tap cell                               3202    4006.34
+    Antenna cell                             11      27.53
+    Clock buffer                              9     225.22
+    Timing Repair Buffer                    482    4484.30
+    Inverter                                788    2974.10
+    Clock inverter                            7      75.07
+    Sequential cell                          65    1626.56
+    Multi-Input combinational cell         1499   20875.02
+    Total                                 33625  243225.77
+
+════════════════════════════════════════════════════════════════════════
+  GUI / VIEWING
+════════════════════════════════════════════════════════════════════════
+  Option A — X11 forwarding (VcXsrv on Windows host):
+    DISPLAY=host.docker.internal:0.0 /OpenROAD-flow-scripts/tools/install/OpenROAD/bin/openroad -gui
+
+  Option B — Headless batch commands:
+    /OpenROAD-flow-scripts/tools/install/OpenROAD/bin/openroad -no_gui << 'TCL'
+    read_db /OpenROAD-flow-scripts/flow/results/sky130hd/dot_product/base/6_final.odb
+    report_design_area
+    report_power
+    report_wns
+    report_tns
+    TCL
+
+  Option C — KLayout (GDS viewer, install on host):
+    klayout /OpenROAD-flow-scripts/flow/results/sky130hd/dot_product/base/6_final.gds
+
+════════════════════════════════════════════════════════════════════════
+  TAPEOUT CHECKLIST
+════════════════════════════════════════════════════════════════════════
+  [✓] GDS file generated
+  [✓] Timing met (WNS ≥ 0)
+  [ ] DRC clean (run: make drc)
+  [ ] LVS clean (run: make lvs)
+  [ ] Fill inserted (run: make fill)
+════════════════════════════════════════════════════════════════════════

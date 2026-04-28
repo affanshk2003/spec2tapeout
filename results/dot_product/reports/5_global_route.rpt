@@ -1,0 +1,539 @@
+
+==========================================================================
+global route report_tns
+--------------------------------------------------------------------------
+tns max -34.54
+
+==========================================================================
+global route report_wns
+--------------------------------------------------------------------------
+wns max -2.79
+
+==========================================================================
+global route report_worst_slack
+--------------------------------------------------------------------------
+worst slack max -2.79
+
+==========================================================================
+global route report_clock_min_period
+--------------------------------------------------------------------------
+clk period_min = 11.79 fmax = 84.83
+
+==========================================================================
+global route report_clock_skew
+--------------------------------------------------------------------------
+Clock clk
+   0.77 source latency A_reg[41]$_DFF_PP0_/CLK ^
+  -0.76 target latency valid_reg$_DFF_PP0_/CLK ^
+   0.10 clock uncertainty
+   0.00 CRPR
+--------------
+   0.11 setup skew
+
+
+==========================================================================
+global route report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: A[33] (input port clocked by clk)
+Endpoint: A_reg[33]$_DFF_PP0_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (propagated)
+                          1.80    1.80 v input external delay
+     1    0.01    0.02    0.01    1.81 v A[33] (in)
+                                         A[33] (net)
+                  0.02    0.00    1.81 v input27/A (sky130_fd_sc_hd__clkdlybuf4s50_1)
+     1    0.00    0.05    0.41    2.22 v input27/X (sky130_fd_sc_hd__clkdlybuf4s50_1)
+                                         net27 (net)
+                  0.05    0.00    2.22 v A_reg[33]$_DFF_PP0_/D (sky130_fd_sc_hd__dfrtp_1)
+                                  2.22   data arrival time
+
+                          0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock source latency
+     2    0.06    0.29    0.20    0.20 ^ clk (in)
+                                         clk (net)
+                  0.29    0.00    0.20 ^ clkbuf_0_clk/A (sky130_fd_sc_hd__clkbuf_16)
+     8    0.20    0.21    0.33    0.53 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                         clknet_0_clk (net)
+                  0.21    0.01    0.54 ^ clkbuf_3_6__f_clk/A (sky130_fd_sc_hd__clkbuf_16)
+    11    0.09    0.11    0.23    0.77 ^ clkbuf_3_6__f_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                         clknet_3_6__leaf_clk (net)
+                  0.11    0.00    0.77 ^ A_reg[33]$_DFF_PP0_/CLK (sky130_fd_sc_hd__dfrtp_1)
+                          0.10    0.87   clock uncertainty
+                          0.00    0.87   clock reconvergence pessimism
+                         -0.04    0.84   library hold time
+                                  0.84   data required time
+-----------------------------------------------------------------------------
+                                  0.84   data required time
+                                 -2.22   data arrival time
+-----------------------------------------------------------------------------
+                                  1.39   slack (MET)
+
+
+
+==========================================================================
+global route report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: B[48] (input port clocked by clk)
+Endpoint: dot_out[16] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (propagated)
+                          1.80    1.80 ^ input external delay
+     1    0.03    0.12    0.09    1.89 ^ B[48] (in)
+                                         B[48] (net)
+                  0.12    0.00    1.89 ^ input107/A (sky130_fd_sc_hd__buf_6)
+     1    0.01    0.04    0.12    2.01 ^ input107/X (sky130_fd_sc_hd__buf_6)
+                                         net107 (net)
+                  0.04    0.00    2.01 ^ place745/A (sky130_fd_sc_hd__buf_8)
+     8    0.06    0.10    0.14    2.14 ^ place745/X (sky130_fd_sc_hd__buf_8)
+                                         net745 (net)
+                  0.10    0.01    2.15 ^ _3293_/A (sky130_fd_sc_hd__nand2_8)
+     3    0.02    0.09    0.06    2.21 v _3293_/Y (sky130_fd_sc_hd__nand2_8)
+                                         _0402_ (net)
+                  0.09    0.00    2.21 v _4696_/A (sky130_fd_sc_hd__fa_2)
+     2    0.01    0.10    0.62    2.83 ^ _4696_/SUM (sky130_fd_sc_hd__fa_2)
+                                         _0406_ (net)
+                  0.10    0.00    2.83 ^ _3489_/A (sky130_fd_sc_hd__inv_2)
+     2    0.01    0.04    0.06    2.89 v _3489_/Y (sky130_fd_sc_hd__inv_2)
+                                         _0429_ (net)
+                  0.04    0.00    2.89 v _4724_/A (sky130_fd_sc_hd__fa_1)
+     1    0.01    0.10    0.57    3.46 ^ _4724_/SUM (sky130_fd_sc_hd__fa_1)
+                                         _0491_ (net)
+                  0.10    0.00    3.46 ^ _3287_/A (sky130_fd_sc_hd__inv_2)
+     1    0.01    0.04    0.05    3.51 v _3287_/Y (sky130_fd_sc_hd__inv_2)
+                                         _0582_ (net)
+                  0.04    0.00    3.51 v _4761_/B (sky130_fd_sc_hd__fa_1)
+     1    0.01    0.09    0.53    4.04 ^ _4761_/SUM (sky130_fd_sc_hd__fa_1)
+                                         _2403_ (net)
+                  0.09    0.00    4.04 ^ _4770_/CIN (sky130_fd_sc_hd__fa_2)
+     1    0.02    0.12    0.50    4.55 v _4770_/SUM (sky130_fd_sc_hd__fa_2)
+                                         _2412_ (net)
+                  0.12    0.00    4.55 v _4842_/A (sky130_fd_sc_hd__fa_1)
+     1    0.01    0.08    0.57    5.12 ^ _4842_/SUM (sky130_fd_sc_hd__fa_1)
+                                         _0819_ (net)
+                  0.08    0.00    5.12 ^ _4513_/A (sky130_fd_sc_hd__inv_2)
+     1    0.01    0.03    0.05    5.17 v _4513_/Y (sky130_fd_sc_hd__inv_2)
+                                         _0842_ (net)
+                  0.03    0.00    5.17 v _4851_/A (sky130_fd_sc_hd__fa_1)
+     1    0.01    0.11    0.51    5.68 v _4851_/SUM (sky130_fd_sc_hd__fa_1)
+                                         _2500_ (net)
+                  0.11    0.00    5.68 v _4870_/A (sky130_fd_sc_hd__fa_1)
+     1    0.01    0.09    0.58    6.26 ^ _4870_/SUM (sky130_fd_sc_hd__fa_1)
+                                         _2522_ (net)
+                  0.09    0.00    6.26 ^ _4911_/CIN (sky130_fd_sc_hd__fa_1)
+     1    0.01    0.10    0.44    6.70 v _4911_/SUM (sky130_fd_sc_hd__fa_1)
+                                         _2574_ (net)
+                  0.10    0.00    6.70 v _4941_/B (sky130_fd_sc_hd__fa_1)
+     1    0.01    0.08    0.54    7.24 ^ _4941_/SUM (sky130_fd_sc_hd__fa_1)
+                                         _1079_ (net)
+                  0.08    0.00    7.24 ^ _3750_/A (sky130_fd_sc_hd__inv_2)
+     1    0.01    0.03    0.05    7.29 v _3750_/Y (sky130_fd_sc_hd__inv_2)
+                                         _1141_ (net)
+                  0.03    0.00    7.29 v _4965_/B (sky130_fd_sc_hd__fa_1)
+     1    0.01    0.08    0.52    7.81 ^ _4965_/SUM (sky130_fd_sc_hd__fa_1)
+                                         _1143_ (net)
+                  0.08    0.00    7.81 ^ _3361_/A (sky130_fd_sc_hd__inv_2)
+     1    0.01    0.03    0.05    7.86 v _3361_/Y (sky130_fd_sc_hd__inv_2)
+                                         _1979_ (net)
+                  0.03    0.00    7.86 v _5366_/B (sky130_fd_sc_hd__ha_4)
+     2    0.01    0.03    0.15    8.01 v _5366_/COUT (sky130_fd_sc_hd__ha_4)
+                                         _1980_ (net)
+                  0.03    0.00    8.01 v _3677_/A (sky130_fd_sc_hd__or3_4)
+     2    0.02    0.08    0.41    8.42 v _3677_/X (sky130_fd_sc_hd__or3_4)
+                                         _2105_ (net)
+                  0.08    0.00    8.42 v place480/A (sky130_fd_sc_hd__buf_6)
+     2    0.01    0.03    0.14    8.56 v place480/X (sky130_fd_sc_hd__buf_6)
+                                         net480 (net)
+                  0.03    0.00    8.56 v _4149_/A (sky130_fd_sc_hd__nor4_4)
+     2    0.01    0.24    0.30    8.85 ^ _4149_/Y (sky130_fd_sc_hd__nor4_4)
+                                         _2130_ (net)
+                  0.24    0.00    8.85 ^ rebuffer755/A (sky130_fd_sc_hd__buf_4)
+     2    0.02    0.08    0.20    9.05 ^ rebuffer755/X (sky130_fd_sc_hd__buf_4)
+                                         net755 (net)
+                  0.08    0.00    9.05 ^ _4351_/B (sky130_fd_sc_hd__nor3_4)
+     3    0.02    0.08    0.06    9.11 v _4351_/Y (sky130_fd_sc_hd__nor3_4)
+                                         _2140_ (net)
+                  0.08    0.00    9.11 v place447/A (sky130_fd_sc_hd__buf_4)
+     2    0.01    0.03    0.15    9.26 v place447/X (sky130_fd_sc_hd__buf_4)
+                                         net447 (net)
+                  0.03    0.00    9.26 v _4356_/C (sky130_fd_sc_hd__or3_4)
+     2    0.01    0.07    0.33    9.59 v _4356_/X (sky130_fd_sc_hd__or3_4)
+                                         _2145_ (net)
+                  0.07    0.00    9.59 v _4357_/B (sky130_fd_sc_hd__and2_4)
+     1    0.01    0.03    0.16    9.75 v _4357_/X (sky130_fd_sc_hd__and2_4)
+                                         net137 (net)
+                  0.03    0.00    9.75 v place437/A (sky130_fd_sc_hd__buf_6)
+     1    0.04    0.05    0.13    9.88 v place437/X (sky130_fd_sc_hd__buf_6)
+                                         dot_out[16] (net)
+                  0.05    0.00    9.89 v dot_out[16] (out)
+                                  9.89   data arrival time
+
+                          9.00    9.00   clock clk (rise edge)
+                          0.00    9.00   clock network delay (propagated)
+                         -0.10    8.90   clock uncertainty
+                          0.00    8.90   clock reconvergence pessimism
+                         -1.80    7.10   output external delay
+                                  7.10   data required time
+-----------------------------------------------------------------------------
+                                  7.10   data required time
+                                 -9.89   data arrival time
+-----------------------------------------------------------------------------
+                                 -2.79   slack (VIOLATED)
+
+
+
+==========================================================================
+global route report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: B[48] (input port clocked by clk)
+Endpoint: dot_out[16] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (propagated)
+                          1.80    1.80 ^ input external delay
+     1    0.03    0.12    0.09    1.89 ^ B[48] (in)
+                                         B[48] (net)
+                  0.12    0.00    1.89 ^ input107/A (sky130_fd_sc_hd__buf_6)
+     1    0.01    0.04    0.12    2.01 ^ input107/X (sky130_fd_sc_hd__buf_6)
+                                         net107 (net)
+                  0.04    0.00    2.01 ^ place745/A (sky130_fd_sc_hd__buf_8)
+     8    0.06    0.10    0.14    2.14 ^ place745/X (sky130_fd_sc_hd__buf_8)
+                                         net745 (net)
+                  0.10    0.01    2.15 ^ _3293_/A (sky130_fd_sc_hd__nand2_8)
+     3    0.02    0.09    0.06    2.21 v _3293_/Y (sky130_fd_sc_hd__nand2_8)
+                                         _0402_ (net)
+                  0.09    0.00    2.21 v _4696_/A (sky130_fd_sc_hd__fa_2)
+     2    0.01    0.10    0.62    2.83 ^ _4696_/SUM (sky130_fd_sc_hd__fa_2)
+                                         _0406_ (net)
+                  0.10    0.00    2.83 ^ _3489_/A (sky130_fd_sc_hd__inv_2)
+     2    0.01    0.04    0.06    2.89 v _3489_/Y (sky130_fd_sc_hd__inv_2)
+                                         _0429_ (net)
+                  0.04    0.00    2.89 v _4724_/A (sky130_fd_sc_hd__fa_1)
+     1    0.01    0.10    0.57    3.46 ^ _4724_/SUM (sky130_fd_sc_hd__fa_1)
+                                         _0491_ (net)
+                  0.10    0.00    3.46 ^ _3287_/A (sky130_fd_sc_hd__inv_2)
+     1    0.01    0.04    0.05    3.51 v _3287_/Y (sky130_fd_sc_hd__inv_2)
+                                         _0582_ (net)
+                  0.04    0.00    3.51 v _4761_/B (sky130_fd_sc_hd__fa_1)
+     1    0.01    0.09    0.53    4.04 ^ _4761_/SUM (sky130_fd_sc_hd__fa_1)
+                                         _2403_ (net)
+                  0.09    0.00    4.04 ^ _4770_/CIN (sky130_fd_sc_hd__fa_2)
+     1    0.02    0.12    0.50    4.55 v _4770_/SUM (sky130_fd_sc_hd__fa_2)
+                                         _2412_ (net)
+                  0.12    0.00    4.55 v _4842_/A (sky130_fd_sc_hd__fa_1)
+     1    0.01    0.08    0.57    5.12 ^ _4842_/SUM (sky130_fd_sc_hd__fa_1)
+                                         _0819_ (net)
+                  0.08    0.00    5.12 ^ _4513_/A (sky130_fd_sc_hd__inv_2)
+     1    0.01    0.03    0.05    5.17 v _4513_/Y (sky130_fd_sc_hd__inv_2)
+                                         _0842_ (net)
+                  0.03    0.00    5.17 v _4851_/A (sky130_fd_sc_hd__fa_1)
+     1    0.01    0.11    0.51    5.68 v _4851_/SUM (sky130_fd_sc_hd__fa_1)
+                                         _2500_ (net)
+                  0.11    0.00    5.68 v _4870_/A (sky130_fd_sc_hd__fa_1)
+     1    0.01    0.09    0.58    6.26 ^ _4870_/SUM (sky130_fd_sc_hd__fa_1)
+                                         _2522_ (net)
+                  0.09    0.00    6.26 ^ _4911_/CIN (sky130_fd_sc_hd__fa_1)
+     1    0.01    0.10    0.44    6.70 v _4911_/SUM (sky130_fd_sc_hd__fa_1)
+                                         _2574_ (net)
+                  0.10    0.00    6.70 v _4941_/B (sky130_fd_sc_hd__fa_1)
+     1    0.01    0.08    0.54    7.24 ^ _4941_/SUM (sky130_fd_sc_hd__fa_1)
+                                         _1079_ (net)
+                  0.08    0.00    7.24 ^ _3750_/A (sky130_fd_sc_hd__inv_2)
+     1    0.01    0.03    0.05    7.29 v _3750_/Y (sky130_fd_sc_hd__inv_2)
+                                         _1141_ (net)
+                  0.03    0.00    7.29 v _4965_/B (sky130_fd_sc_hd__fa_1)
+     1    0.01    0.08    0.52    7.81 ^ _4965_/SUM (sky130_fd_sc_hd__fa_1)
+                                         _1143_ (net)
+                  0.08    0.00    7.81 ^ _3361_/A (sky130_fd_sc_hd__inv_2)
+     1    0.01    0.03    0.05    7.86 v _3361_/Y (sky130_fd_sc_hd__inv_2)
+                                         _1979_ (net)
+                  0.03    0.00    7.86 v _5366_/B (sky130_fd_sc_hd__ha_4)
+     2    0.01    0.03    0.15    8.01 v _5366_/COUT (sky130_fd_sc_hd__ha_4)
+                                         _1980_ (net)
+                  0.03    0.00    8.01 v _3677_/A (sky130_fd_sc_hd__or3_4)
+     2    0.02    0.08    0.41    8.42 v _3677_/X (sky130_fd_sc_hd__or3_4)
+                                         _2105_ (net)
+                  0.08    0.00    8.42 v place480/A (sky130_fd_sc_hd__buf_6)
+     2    0.01    0.03    0.14    8.56 v place480/X (sky130_fd_sc_hd__buf_6)
+                                         net480 (net)
+                  0.03    0.00    8.56 v _4149_/A (sky130_fd_sc_hd__nor4_4)
+     2    0.01    0.24    0.30    8.85 ^ _4149_/Y (sky130_fd_sc_hd__nor4_4)
+                                         _2130_ (net)
+                  0.24    0.00    8.85 ^ rebuffer755/A (sky130_fd_sc_hd__buf_4)
+     2    0.02    0.08    0.20    9.05 ^ rebuffer755/X (sky130_fd_sc_hd__buf_4)
+                                         net755 (net)
+                  0.08    0.00    9.05 ^ _4351_/B (sky130_fd_sc_hd__nor3_4)
+     3    0.02    0.08    0.06    9.11 v _4351_/Y (sky130_fd_sc_hd__nor3_4)
+                                         _2140_ (net)
+                  0.08    0.00    9.11 v place447/A (sky130_fd_sc_hd__buf_4)
+     2    0.01    0.03    0.15    9.26 v place447/X (sky130_fd_sc_hd__buf_4)
+                                         net447 (net)
+                  0.03    0.00    9.26 v _4356_/C (sky130_fd_sc_hd__or3_4)
+     2    0.01    0.07    0.33    9.59 v _4356_/X (sky130_fd_sc_hd__or3_4)
+                                         _2145_ (net)
+                  0.07    0.00    9.59 v _4357_/B (sky130_fd_sc_hd__and2_4)
+     1    0.01    0.03    0.16    9.75 v _4357_/X (sky130_fd_sc_hd__and2_4)
+                                         net137 (net)
+                  0.03    0.00    9.75 v place437/A (sky130_fd_sc_hd__buf_6)
+     1    0.04    0.05    0.13    9.88 v place437/X (sky130_fd_sc_hd__buf_6)
+                                         dot_out[16] (net)
+                  0.05    0.00    9.89 v dot_out[16] (out)
+                                  9.89   data arrival time
+
+                          9.00    9.00   clock clk (rise edge)
+                          0.00    9.00   clock network delay (propagated)
+                         -0.10    8.90   clock uncertainty
+                          0.00    8.90   clock reconvergence pessimism
+                         -1.80    7.10   output external delay
+                                  7.10   data required time
+-----------------------------------------------------------------------------
+                                  7.10   data required time
+                                 -9.89   data arrival time
+-----------------------------------------------------------------------------
+                                 -2.79   slack (VIOLATED)
+
+
+
+==========================================================================
+global route report_check_types -max_slew -max_cap -max_fanout -violators
+--------------------------------------------------------------------------
+
+==========================================================================
+global route max_slew_check_slack
+--------------------------------------------------------------------------
+0.6793555617332458
+
+==========================================================================
+global route max_slew_check_limit
+--------------------------------------------------------------------------
+1.5
+
+==========================================================================
+global route max_slew_check_slack_limit
+--------------------------------------------------------------------------
+0.4529
+
+==========================================================================
+global route max_fanout_check_slack
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+global route max_fanout_check_limit
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+global route max_capacitance_check_slack
+--------------------------------------------------------------------------
+0.03177861124277115
+
+==========================================================================
+global route max_capacitance_check_limit
+--------------------------------------------------------------------------
+0.03663099929690361
+
+==========================================================================
+global route max_capacitance_check_slack_limit
+--------------------------------------------------------------------------
+0.8675
+
+==========================================================================
+global route max_slew_violation_count
+--------------------------------------------------------------------------
+max slew violation count 0
+
+==========================================================================
+global route max_fanout_violation_count
+--------------------------------------------------------------------------
+max fanout violation count 0
+
+==========================================================================
+global route max_cap_violation_count
+--------------------------------------------------------------------------
+max cap violation count 0
+
+==========================================================================
+global route setup_violation_count
+--------------------------------------------------------------------------
+setup violation count 18
+
+==========================================================================
+global route hold_violation_count
+--------------------------------------------------------------------------
+hold violation count 0
+
+==========================================================================
+global route report_checks -path_delay max reg to reg
+--------------------------------------------------------------------------
+Startpoint: A_reg[55]$_DFF_PP0_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: valid_reg$_DFF_PP0_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock clk (rise edge)
+   0.00    0.00   clock source latency
+   0.20    0.20 ^ clk (in)
+   0.33    0.53 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+   0.23    0.75 ^ clkbuf_3_1__f_clk/X (sky130_fd_sc_hd__clkbuf_16)
+   0.00    0.76 ^ A_reg[55]$_DFF_PP0_/CLK (sky130_fd_sc_hd__dfrtp_1)
+   0.72    1.48 ^ A_reg[55]$_DFF_PP0_/Q (sky130_fd_sc_hd__dfrtp_1)
+   0.23    1.70 v _4204_/Y (sky130_fd_sc_hd__nand2_1)
+   0.62    2.32 ^ _4696_/SUM (sky130_fd_sc_hd__fa_2)
+   0.06    2.38 v _3489_/Y (sky130_fd_sc_hd__inv_2)
+   0.57    2.95 ^ _4724_/SUM (sky130_fd_sc_hd__fa_1)
+   0.05    3.01 v _3287_/Y (sky130_fd_sc_hd__inv_2)
+   0.53    3.54 ^ _4761_/SUM (sky130_fd_sc_hd__fa_1)
+   0.50    4.04 v _4770_/SUM (sky130_fd_sc_hd__fa_2)
+   0.58    4.62 ^ _4842_/SUM (sky130_fd_sc_hd__fa_1)
+   0.05    4.66 v _4513_/Y (sky130_fd_sc_hd__inv_2)
+   0.51    5.17 v _4851_/SUM (sky130_fd_sc_hd__fa_1)
+   0.58    5.75 ^ _4870_/SUM (sky130_fd_sc_hd__fa_1)
+   0.44    6.20 v _4911_/SUM (sky130_fd_sc_hd__fa_1)
+   0.54    6.74 ^ _4941_/SUM (sky130_fd_sc_hd__fa_1)
+   0.05    6.79 v _3750_/Y (sky130_fd_sc_hd__inv_2)
+   0.52    7.31 ^ _4965_/SUM (sky130_fd_sc_hd__fa_1)
+   0.05    7.36 v _3361_/Y (sky130_fd_sc_hd__inv_2)
+   0.15    7.51 v _5366_/COUT (sky130_fd_sc_hd__ha_4)
+   0.41    7.91 v _3677_/X (sky130_fd_sc_hd__or3_4)
+   0.14    8.05 v place480/X (sky130_fd_sc_hd__buf_6)
+   0.14    8.19 v rebuffer762/X (sky130_fd_sc_hd__buf_4)
+   0.15    8.34 v _3678_/Y (sky130_fd_sc_hd__nand2b_4)
+   0.19    8.52 ^ _3679_/Y (sky130_fd_sc_hd__o2bb2ai_4)
+   0.13    8.66 v _3680_/Y (sky130_fd_sc_hd__xnor2_4)
+   0.14    8.80 v rebuffer824/X (sky130_fd_sc_hd__buf_6)
+   0.13    8.92 v place455/X (sky130_fd_sc_hd__buf_4)
+   0.21    9.13 ^ _4558_/Y (sky130_fd_sc_hd__nor4_4)
+   0.18    9.32 ^ place442/X (sky130_fd_sc_hd__buf_4)
+   0.22    9.54 ^ _4559_/Y (sky130_fd_sc_hd__nor4b_4)
+   0.17    9.72 ^ place441/X (sky130_fd_sc_hd__buf_4)
+   0.13    9.85 v _4561_/Y (sky130_fd_sc_hd__nand4bb_1)
+   0.00    9.85 v valid_reg$_DFF_PP0_/D (sky130_fd_sc_hd__dfrtp_1)
+           9.85   data arrival time
+
+   9.00    9.00   clock clk (rise edge)
+   0.00    9.00   clock source latency
+   0.20    9.20 ^ clk (in)
+   0.33    9.53 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+   0.23    9.75 ^ clkbuf_3_1__f_clk/X (sky130_fd_sc_hd__clkbuf_16)
+   0.00    9.76 ^ valid_reg$_DFF_PP0_/CLK (sky130_fd_sc_hd__dfrtp_1)
+  -0.10    9.66   clock uncertainty
+   0.00    9.66   clock reconvergence pessimism
+  -0.14    9.52   library setup time
+           9.52   data required time
+---------------------------------------------------------
+           9.52   data required time
+          -9.85   data arrival time
+---------------------------------------------------------
+          -0.33   slack (VIOLATED)
+
+
+
+==========================================================================
+global route report_checks -path_delay min reg to reg
+--------------------------------------------------------------------------
+Startpoint: A_reg[7]$_DFF_PP0_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: valid_reg$_DFF_PP0_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: min
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock clk (rise edge)
+   0.00    0.00   clock source latency
+   0.20    0.20 ^ clk (in)
+   0.33    0.53 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+   0.23    0.75 ^ clkbuf_3_1__f_clk/X (sky130_fd_sc_hd__clkbuf_16)
+   0.00    0.76 ^ A_reg[7]$_DFF_PP0_/CLK (sky130_fd_sc_hd__dfrtp_1)
+   0.50    1.25 v A_reg[7]$_DFF_PP0_/Q (sky130_fd_sc_hd__dfrtp_1)
+   0.21    1.46 v place571/X (sky130_fd_sc_hd__buf_4)
+   0.18    1.64 ^ _3808_/Y (sky130_fd_sc_hd__nand2_1)
+   0.19    1.83 ^ place552/X (sky130_fd_sc_hd__buf_4)
+   0.25    2.08 v _5433_/SUM (sky130_fd_sc_hd__ha_1)
+   0.20    2.28 ^ _4476_/Y (sky130_fd_sc_hd__nand3_1)
+   0.17    2.45 ^ place502/X (sky130_fd_sc_hd__buf_4)
+   0.14    2.58 ^ _4528_/Y (sky130_fd_sc_hd__xnor2_1)
+   0.22    2.80 ^ _4529_/Y (sky130_fd_sc_hd__xnor2_1)
+   0.17    2.97 ^ _4540_/Y (sky130_fd_sc_hd__xnor2_2)
+   0.16    3.13 ^ _4543_/Y (sky130_fd_sc_hd__xnor2_2)
+   0.16    3.29 ^ _4561_/Y (sky130_fd_sc_hd__nand4bb_1)
+   0.00    3.29 ^ valid_reg$_DFF_PP0_/D (sky130_fd_sc_hd__dfrtp_1)
+           3.29   data arrival time
+
+   0.00    0.00   clock clk (rise edge)
+   0.00    0.00   clock source latency
+   0.20    0.20 ^ clk (in)
+   0.33    0.53 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+   0.23    0.75 ^ clkbuf_3_1__f_clk/X (sky130_fd_sc_hd__clkbuf_16)
+   0.00    0.76 ^ valid_reg$_DFF_PP0_/CLK (sky130_fd_sc_hd__dfrtp_1)
+   0.10    0.86   clock uncertainty
+   0.00    0.86   clock reconvergence pessimism
+  -0.04    0.82   library hold time
+           0.82   data required time
+---------------------------------------------------------
+           0.82   data required time
+          -3.29   data arrival time
+---------------------------------------------------------
+           2.47   slack (MET)
+
+
+
+==========================================================================
+global route critical path target clock latency max path
+--------------------------------------------------------------------------
+0.7574
+
+==========================================================================
+global route critical path target clock latency min path
+--------------------------------------------------------------------------
+0.7712
+
+==========================================================================
+global route critical path source clock latency min path
+--------------------------------------------------------------------------
+0.0000
+
+==========================================================================
+global route critical path delay
+--------------------------------------------------------------------------
+9.8882
+
+==========================================================================
+global route critical path slack
+--------------------------------------------------------------------------
+-2.7882
+
+==========================================================================
+global route slack div critical path delay
+--------------------------------------------------------------------------
+-28.197245
+
+==========================================================================
+global route report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             3.07e-04   4.35e-05   7.54e-10   3.50e-04   0.3%
+Combinational          5.66e-02   6.31e-02   1.50e-08   1.20e-01  99.3%
+Clock                  2.17e-04   2.56e-04   1.51e-10   4.74e-04   0.4%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  5.71e-02   6.34e-02   1.59e-08   1.21e-01 100.0%
+                          47.4%      52.6%       0.0%

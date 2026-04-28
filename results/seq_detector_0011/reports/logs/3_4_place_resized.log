@@ -1,0 +1,32 @@
+OpenROAD 26Q1-2290-g4589d89a40 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 16 thread(s).
+read_liberty /OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_db ./results/sky130hd/seq_detector_0011/base/3_3_place_gp.odb
+read_sdc ./results/sky130hd/seq_detector_0011/base/2_floorplan.sdc
+source /OpenROAD-flow-scripts/flow/platforms/sky130hd/setRC.tcl
+estimate_parasitics -placement
+Perform buffer insertion and gate resizing...
+repair_design -verbose -match_cell_footprint
+Iteration |   Area    | Resized | Buffers | Nets repaired | Remaining
+---------------------------------------------------------------------
+        0 |     +0.0% |       0 |       0 |             0 |        13
+       10 |     +0.0% |       0 |       0 |             0 |         3
+    final |     +0.0% |       0 |       0 |             0 |         0
+---------------------------------------------------------------------
+Floating nets: 
+[WARNING RSZ-0020] found 2 floating nets.
+Report metrics stage 3, resizer...
+
+==========================================================================
+resizer report_design_area
+--------------------------------------------------------------------------
+Design area 168 um^2 15% utilization.
+Instance count before 24, after 24
+Pin count before 32, after 32
+write_db ./results/sky130hd/seq_detector_0011/base/3_4_place_resized.odb
+Elapsed time: 0:00.86[h:]min:sec. CPU time: user 0.65 sys 0.21 (99%). Peak memory: 141136KB.
+Log                        Elapsed/s Peak Memory/MB  sha1sum .odb [0:20)
+3_4_place_resized                  0            137 36f147f0d3c3b747cc15

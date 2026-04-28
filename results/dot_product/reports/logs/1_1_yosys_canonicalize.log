@@ -1,0 +1,21 @@
+Yosys 0.63+post (git sha1 UNKNOWN-dirty, g++ 11.4.0-1ubuntu1~22.04.3 -fPIC -O3)
+Using ABC speed script.
+Extracting clock period from SDC file: ./results/sky130hd/dot_product/base/clock_period.txt
+Setting clock period to 9.0
+1. Executing Liberty frontend: /OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+2. Executing Liberty frontend: /OpenROAD-flow-scripts/flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+3. Executing Verilog-2005 frontend: /OpenROAD-flow-scripts/flow/designs/sky130hd/dot_product/rtl/dot_product.v
+4. Executing Verilog-2005 frontend: /OpenROAD-flow-scripts/flow/platforms/sky130hd/cells_clkgate_hd.v
+5. Executing HIERARCHY pass (managing design hierarchy).
+6. Executing AST frontend in derive mode using pre-parsed AST for module `\dot_product'.
+Warning: reg '\valid_next' is assigned in a continuous assignment at /OpenROAD-flow-scripts/flow/designs/sky130hd/dot_product/rtl/dot_product.v:51.12-51.54.
+6.1. Analyzing design hierarchy..
+6.2. Analyzing design hierarchy..
+7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Warning: Ignoring module dot_product because it contains processes (run 'proc' command first).
+8. Executing RTLIL backend.
+Warnings: 2 unique messages, 2 total
+End of script. Logfile hash: 3e52b2169b, CPU: user 0.13s system 0.03s, MEM: 49.38 MB peak
+Yosys 0.63+post (git sha1 UNKNOWN-dirty, g++ 11.4.0-1ubuntu1~22.04.3 -fPIC -O3)
+Time spent: 77% 4x read_liberty (0 sec), 13% 4x read_verilog (0 sec), ...
+Elapsed time: 0:00.24[h:]min:sec. CPU time: user 0.19 sys 0.03 (91%). Peak memory: 54528KB.

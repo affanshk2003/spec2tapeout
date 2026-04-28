@@ -1,0 +1,315 @@
+
+==========================================================================
+detailed place report_tns
+--------------------------------------------------------------------------
+tns max 0.00
+
+==========================================================================
+detailed place report_wns
+--------------------------------------------------------------------------
+wns max 0.00
+
+==========================================================================
+detailed place report_worst_slack
+--------------------------------------------------------------------------
+worst slack max 1.76
+
+==========================================================================
+detailed place report_clock_min_period
+--------------------------------------------------------------------------
+clk period_min = 2.09 fmax = 479.24
+
+==========================================================================
+detailed place report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: shift_register[1]$_DFF_PP0_
+            (rising edge-triggered flip-flop clocked by clk)
+Endpoint: shift_register[2]$_DFF_PP0_
+          (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.15    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.15    0.00    0.00 ^ shift_register[1]$_DFF_PP0_/CLK (sky130_fd_sc_hd__dfrtp_1)
+     2    0.01    0.07    0.37    0.37 ^ shift_register[1]$_DFF_PP0_/Q (sky130_fd_sc_hd__dfrtp_1)
+                                         shift_register[1] (net)
+                  0.07    0.00    0.37 ^ shift_register[2]$_DFF_PP0_/D (sky130_fd_sc_hd__dfrtp_1)
+                                  0.37   data arrival time
+
+                  0.15    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.10    0.10   clock uncertainty
+                          0.00    0.10   clock reconvergence pessimism
+                                  0.10 ^ shift_register[2]$_DFF_PP0_/CLK (sky130_fd_sc_hd__dfrtp_1)
+                         -0.02    0.08   library hold time
+                                  0.08   data required time
+-----------------------------------------------------------------------------
+                                  0.08   data required time
+                                 -0.37   data arrival time
+-----------------------------------------------------------------------------
+                                  0.30   slack (MET)
+
+
+
+==========================================================================
+detailed place report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: shift_register[3]$_DFF_PP0_
+            (rising edge-triggered flip-flop clocked by clk)
+Endpoint: detected (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.15    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.15    0.00    0.00 ^ shift_register[3]$_DFF_PP0_/CLK (sky130_fd_sc_hd__dfrtp_1)
+     1    0.01    0.05    0.40    0.40 v shift_register[3]$_DFF_PP0_/Q (sky130_fd_sc_hd__dfrtp_1)
+                                         shift_register[3] (net)
+                  0.05    0.00    0.40 v _3_/B (sky130_fd_sc_hd__nor4_2)
+     1    0.00    0.19    0.24    0.64 ^ _3_/Y (sky130_fd_sc_hd__nor4_2)
+                                         net3 (net)
+                  0.19    0.00    0.64 ^ output3/A (sky130_fd_sc_hd__clkdlybuf4s50_1)
+     1    0.01    0.12    0.57    1.22 ^ output3/X (sky130_fd_sc_hd__clkdlybuf4s50_1)
+                                         detected (net)
+                  0.12    0.00    1.22 ^ detected (out)
+                                  1.22   data arrival time
+
+                  0.15    3.85    3.85   clock clk (rise edge)
+                          0.00    3.85   clock network delay (ideal)
+                         -0.10    3.75   clock uncertainty
+                          0.00    3.75   clock reconvergence pessimism
+                         -0.77    2.98   output external delay
+                                  2.98   data required time
+-----------------------------------------------------------------------------
+                                  2.98   data required time
+                                 -1.22   data arrival time
+-----------------------------------------------------------------------------
+                                  1.76   slack (MET)
+
+
+
+==========================================================================
+detailed place report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: shift_register[3]$_DFF_PP0_
+            (rising edge-triggered flip-flop clocked by clk)
+Endpoint: detected (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.15    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.15    0.00    0.00 ^ shift_register[3]$_DFF_PP0_/CLK (sky130_fd_sc_hd__dfrtp_1)
+     1    0.01    0.05    0.40    0.40 v shift_register[3]$_DFF_PP0_/Q (sky130_fd_sc_hd__dfrtp_1)
+                                         shift_register[3] (net)
+                  0.05    0.00    0.40 v _3_/B (sky130_fd_sc_hd__nor4_2)
+     1    0.00    0.19    0.24    0.64 ^ _3_/Y (sky130_fd_sc_hd__nor4_2)
+                                         net3 (net)
+                  0.19    0.00    0.64 ^ output3/A (sky130_fd_sc_hd__clkdlybuf4s50_1)
+     1    0.01    0.12    0.57    1.22 ^ output3/X (sky130_fd_sc_hd__clkdlybuf4s50_1)
+                                         detected (net)
+                  0.12    0.00    1.22 ^ detected (out)
+                                  1.22   data arrival time
+
+                  0.15    3.85    3.85   clock clk (rise edge)
+                          0.00    3.85   clock network delay (ideal)
+                         -0.10    3.75   clock uncertainty
+                          0.00    3.75   clock reconvergence pessimism
+                         -0.77    2.98   output external delay
+                                  2.98   data required time
+-----------------------------------------------------------------------------
+                                  2.98   data required time
+                                 -1.22   data arrival time
+-----------------------------------------------------------------------------
+                                  1.76   slack (MET)
+
+
+
+==========================================================================
+detailed place report_check_types -max_slew -max_cap -max_fanout -violators
+--------------------------------------------------------------------------
+
+==========================================================================
+detailed place max_slew_check_slack
+--------------------------------------------------------------------------
+1.2935776710510254
+
+==========================================================================
+detailed place max_slew_check_limit
+--------------------------------------------------------------------------
+1.487615942955017
+
+==========================================================================
+detailed place max_slew_check_slack_limit
+--------------------------------------------------------------------------
+0.8696
+
+==========================================================================
+detailed place max_fanout_check_slack
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+detailed place max_fanout_check_limit
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+detailed place max_capacitance_check_slack
+--------------------------------------------------------------------------
+0.060805365443229675
+
+==========================================================================
+detailed place max_capacitance_check_limit
+--------------------------------------------------------------------------
+0.06409700214862823
+
+==========================================================================
+detailed place max_capacitance_check_slack_limit
+--------------------------------------------------------------------------
+0.9486
+
+==========================================================================
+detailed place max_slew_violation_count
+--------------------------------------------------------------------------
+max slew violation count 0
+
+==========================================================================
+detailed place max_fanout_violation_count
+--------------------------------------------------------------------------
+max fanout violation count 0
+
+==========================================================================
+detailed place max_cap_violation_count
+--------------------------------------------------------------------------
+max cap violation count 0
+
+==========================================================================
+detailed place setup_violation_count
+--------------------------------------------------------------------------
+setup violation count 0
+
+==========================================================================
+detailed place hold_violation_count
+--------------------------------------------------------------------------
+hold violation count 0
+
+==========================================================================
+detailed place report_checks -path_delay max reg to reg
+--------------------------------------------------------------------------
+Startpoint: shift_register[2]$_DFF_PP0_
+            (rising edge-triggered flip-flop clocked by clk)
+Endpoint: shift_register[3]$_DFF_PP0_
+          (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.00    0.00 ^ shift_register[2]$_DFF_PP0_/CLK (sky130_fd_sc_hd__dfrtp_1)
+   0.42    0.42 v shift_register[2]$_DFF_PP0_/Q (sky130_fd_sc_hd__dfrtp_1)
+   0.00    0.42 v shift_register[3]$_DFF_PP0_/D (sky130_fd_sc_hd__dfrtp_1)
+           0.42   data arrival time
+
+   3.85    3.85   clock clk (rise edge)
+   0.00    3.85   clock network delay (ideal)
+  -0.10    3.75   clock uncertainty
+   0.00    3.75   clock reconvergence pessimism
+           3.75 ^ shift_register[3]$_DFF_PP0_/CLK (sky130_fd_sc_hd__dfrtp_1)
+  -0.10    3.65   library setup time
+           3.65   data required time
+---------------------------------------------------------
+           3.65   data required time
+          -0.42   data arrival time
+---------------------------------------------------------
+           3.23   slack (MET)
+
+
+
+==========================================================================
+detailed place report_checks -path_delay min reg to reg
+--------------------------------------------------------------------------
+Startpoint: shift_register[1]$_DFF_PP0_
+            (rising edge-triggered flip-flop clocked by clk)
+Endpoint: shift_register[2]$_DFF_PP0_
+          (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: min
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.00    0.00 ^ shift_register[1]$_DFF_PP0_/CLK (sky130_fd_sc_hd__dfrtp_1)
+   0.37    0.37 ^ shift_register[1]$_DFF_PP0_/Q (sky130_fd_sc_hd__dfrtp_1)
+   0.00    0.37 ^ shift_register[2]$_DFF_PP0_/D (sky130_fd_sc_hd__dfrtp_1)
+           0.37   data arrival time
+
+   0.00    0.00   clock clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.10    0.10   clock uncertainty
+   0.00    0.10   clock reconvergence pessimism
+           0.10 ^ shift_register[2]$_DFF_PP0_/CLK (sky130_fd_sc_hd__dfrtp_1)
+  -0.02    0.08   library hold time
+           0.08   data required time
+---------------------------------------------------------
+           0.08   data required time
+          -0.37   data arrival time
+---------------------------------------------------------
+           0.30   slack (MET)
+
+
+
+==========================================================================
+detailed place critical path target clock latency max path
+--------------------------------------------------------------------------
+0.0000
+
+==========================================================================
+detailed place critical path target clock latency min path
+--------------------------------------------------------------------------
+0.0000
+
+==========================================================================
+detailed place critical path source clock latency min path
+--------------------------------------------------------------------------
+0.0000
+
+==========================================================================
+detailed place critical path delay
+--------------------------------------------------------------------------
+1.2167
+
+==========================================================================
+detailed place critical path slack
+--------------------------------------------------------------------------
+1.7633
+
+==========================================================================
+detailed place slack div critical path delay
+--------------------------------------------------------------------------
+144.924797
+
+==========================================================================
+detailed place report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             4.42e-05   1.09e-06   4.66e-11   4.53e-05  91.7%
+Combinational          2.38e-06   1.69e-06   1.95e-11   4.08e-06   8.3%
+Clock                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  4.66e-05   2.79e-06   6.61e-11   4.94e-05 100.0%
+                          94.4%       5.6%       0.0%

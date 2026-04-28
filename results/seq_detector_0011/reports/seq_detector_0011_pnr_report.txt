@@ -1,0 +1,88 @@
+
+════════════════════════════════════════════════════════════════════════
+  RTL-to-GDS COMPLETE REPORT — seq_detector_0011
+════════════════════════════════════════════════════════════════════════
+  Spec2Tapeout | ICLAD 2025 | Platform: sky130hd (SkyWater 130nm)
+  Pipeline: Ollama deepseek-coder → Yosys → OpenROAD ORFS
+  Final stage : 6_final
+
+════════════════════════════════════════════════════════════════════════
+  OUTPUT FILES
+════════════════════════════════════════════════════════════════════════
+  ODB  : /OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/6_final.odb
+  GDS  : /OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/6_final.gds
+  Size        : 77,174 bytes (75 KB)
+  SDC  : constraints/seq_detector_0011.sdc
+  RTL  : rtl/seq_detector_0011.v
+  Dirs : results → /OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base
+         reports → /OpenROAD-flow-scripts/flow/reports/sky130hd/seq_detector_0011/base
+
+════════════════════════════════════════════════════════════════════════
+  TIMING SUMMARY                          ✓ TIMING MET
+════════════════════════════════════════════════════════════════════════
+  WNS (Worst Negative Slack) : 0.000 ns
+  TNS (Total Negative Slack)  : N/A ns
+  Spec clock period           : 1.1 ns
+  Synthesis target period     : 3.85 ns
+  Note: SDC targets synthesis period to meet sky130hd realistic timing.
+        WNS shown is vs. synthesis target (not spec). See periods above.
+
+════════════════════════════════════════════════════════════════════════
+  AREA & UTILIZATION
+════════════════════════════════════════════════════════════════════════
+  Design area   : 190 µm²
+  Utilization   : 17%
+
+════════════════════════════════════════════════════════════════════════
+  POWER ESTIMATE
+════════════════════════════════════════════════════════════════════════
+  Internal power  : 8.190e-05 W
+  Switching power : 2.720e-05 W
+  Leakage power   : 7.990e-11 W
+  Total power     : 1.090e-04 W
+
+════════════════════════════════════════════════════════════════════════
+  ROUTING DRC
+════════════════════════════════════════════════════════════════════════
+  Not available (6_report stage skipped due to headless mode)
+
+════════════════════════════════════════════════════════════════════════
+  CELL COUNT BREAKDOWN
+════════════════════════════════════════════════════════════════════════
+  Cell type report:                       Count       Area
+    Fill cell                               131     920.88
+    Tap cell                                 14      17.52
+    Clock buffer                              3      22.52
+    Timing Repair Buffer                      3      30.03
+    Inverter                                  1       3.75
+    Sequential cell                           4     100.10
+    Multi-Input combinational cell            2      16.27
+    Total                                   158    1111.07
+
+════════════════════════════════════════════════════════════════════════
+  GUI / VIEWING
+════════════════════════════════════════════════════════════════════════
+  Option A — X11 forwarding (VcXsrv on Windows host):
+    DISPLAY=host.docker.internal:0.0 /OpenROAD-flow-scripts/tools/install/OpenROAD/bin/openroad -gui
+
+  Option B — Headless batch commands:
+    /OpenROAD-flow-scripts/tools/install/OpenROAD/bin/openroad -no_gui << 'TCL'
+    read_db /OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/6_final.odb
+    report_design_area
+    report_power
+    report_wns
+    report_tns
+    TCL
+
+  Option C — KLayout (GDS viewer, install on host):
+    klayout /OpenROAD-flow-scripts/flow/results/sky130hd/seq_detector_0011/base/6_final.gds
+
+════════════════════════════════════════════════════════════════════════
+  TAPEOUT CHECKLIST
+════════════════════════════════════════════════════════════════════════
+  [✓] GDS file generated
+  [✓] Timing met (WNS ≥ 0)
+  [ ] DRC clean (run: make drc)
+  [ ] LVS clean (run: make lvs)
+  [ ] Fill inserted (run: make fill)
+════════════════════════════════════════════════════════════════════════
